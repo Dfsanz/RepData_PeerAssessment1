@@ -79,6 +79,8 @@ ggplot(data=intervalSummary, aes(x=interval, y=steps)) + geom_line() + xlab("Int
 
 2. Which 5-minute interval, on average across all the days in the dataset, contains the maximum number of steps?
 
+Answer: 835-840 is the 5 minute interval with a maximum number of steps.
+
 
 ```{r, echo=TRUE}
 intervalMaxSteps <- intervalSummary[which(intervalSummary$steps==max(intervalSummary$steps)),]$interval
@@ -87,9 +89,13 @@ intervalMaxSteps <- intervalSummary[which(intervalSummary$steps==max(intervalSum
 ## Imputing missing values
 1. Calculate and report the total number of missing values in the dataset (i.e. the total number of rows with NAs)
 
+
 ```{r, echo=TRUE}
 
+# Identify positions for NA values
 naValues <- is.na(activity_NA$steps)
+
+# Calculate total number of NA values
 numberOfNA <- sum(naValues)
 
 ```
